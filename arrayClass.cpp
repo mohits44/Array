@@ -19,34 +19,72 @@ void printArr( int *array,int size)
      {
          cout<<array[i]<<" ";
      }
+     cout<<"\n";
 }
-void mixSortArr(int *arr, int size)
+void SortArr(int *arr, int size)
 {
     int i,j,temp;
+    cout<<"sorted the array.\n";
     for(i=0;i<size;i++)
     {
         for(j=i+1;j<size;j++)
         {
             if(arr[i]>arr[j])
             {
-                temp=arr[i];
-                arr[i]=arr[j];
-                arr[j]=temp;
+                swapArr(arr+i,arr+j);
             }
         }
     }
+    printArr(arr,size);
     
+}
+void reverseSortArr(int *arr, int size)
+{
+    int i=0,j;
+    SortArr(arr,size);
+    cout<<"reversed the sorted array.";
+    j=size-1;
+     
+          while(i<=j)
+          {
+             
+             swapArr(arr+i,arr+j);
+              j--,i++;
+          }
+          
+      
+   cout<<"\n";
+   printArr(arr,size);
+    
+}
+void reverseArr(int *arr, int size)
+{
+     cout<<"reversing the array:";
+     for(int i=0;i<size;i++)
+     {
+         cout<<arr[i]<<" ";
+     }
+}
+void swapArr(int *a, int *b)
+{
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
 }
 };
 int main() {
     // Write C++ code here
-    Array a;
+    Array *a;
+    Array k;
     int*b;
-    a.readArr(b,5);
-    a.printArr(b,5);
-    a.mixSortArr(b,5);
-    cout<<endl;
-    a.printArr(b,5);
+    a->readArr(b,5);
+    a->printArr(b,5);
+    a->reverseSortArr(b,5);
+ 
+    int y=3 , z=4;
+   
+    cout<<"\n"<<y<<" "<<z;
 
     return 0;
 }
