@@ -2,7 +2,29 @@
 #include <iostream>
 using namespace std;
 class Array{
-public:  
+public: 
+void swapAlternate(int *arr, int size)
+{
+    int temp,i,j;
+    if(size%2==0)
+    {
+      for (i = 0; i < size; i = i + 2) {
+
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+      }
+    }
+    else
+    {
+        for (i = 0; i < size-1; i = i + 2) {
+
+        temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+      }
+    }
+}
 void readArr(int *&array, int size)
 {
     array=new int[size];
